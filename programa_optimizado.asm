@@ -32,9 +32,7 @@ loop:
     # --- Carga de dato ---
     lw $t6, 0($t5)        # Leer X[i]
     
-    # ===== OPTIMIZACIÓN: Instrucciones reordenadas =====
-    # Estas instrucciones NO dependen de $t6, así que las movemos
-    # aquí para "rellenar" los ciclos de espera del load
+    # -- Aquí es donde se ve realmente la reordenación para "rellenar" los ciclos de espera --
     addi $t3, $t3, 1      # i = i + 1 (MOVIDO desde el final)
     addu $t9, $s1, $t4    # t9 = dirección de Y[i] (MOVIDO desde abajo)
     
